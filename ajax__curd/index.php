@@ -380,7 +380,7 @@
                 //         arr.push(self.attr("id"));
                 //     }
                 // });
-                alert(id_array);
+                //alert(id_array);
 
                 // var data_id= $('.mark').closest('tr').find('.data_id').text();
                 // //alert(data_id);
