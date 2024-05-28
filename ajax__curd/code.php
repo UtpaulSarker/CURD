@@ -96,11 +96,11 @@ if (isset($_POST['checking_delete'])) {
 if (isset($_POST['mark_delete'])) {
     $id = $_POST['data_id'];
 
-    $ids = str_split($id, 3);
+    //$ids = str_split($id, 3);
 
-    $_taskids = implode(",", $ids);
-                if ($_taskids) {
-                    $query = "DELETE FROM crud WHERE id in($_taskids)";
+    //$_taskids = implode(",", $ids);
+                if ($id) {
+                    $query = "DELETE FROM crud WHERE id in($id)";
                     $query_run = mysqli_query($conn, $query);
                     if ($query_run) {
                         echo $return="Sucessfully Delete";

@@ -8,17 +8,20 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<style>
-    th,td{
-        text-align: center;
-    }
-    .hide{
-        display: none;
-    }
-    .data_id{
-        text-align: center;
-    }
-</style>
+    <style>
+        th,
+        td {
+            text-align: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .data_id {
+            text-align: center;
+        }
+    </style>
     <title>PHP - AJAX - CRUD</title>
 </head>
 
@@ -191,7 +194,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger delete_data">Yes Delete</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    
+
                 </div>
             </div>
         </div>
@@ -217,9 +220,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-danger mDeletebtn">Yes Delete</button>    
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    
+                    <button type="button" class="btn btn-danger mDeletebtn">Yes Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                 </div>
             </div>
         </div>
@@ -360,24 +363,31 @@
             });
 
             $(document).on("click", ".mDelete", function() {
+                var id_array=[];
 
-                var data_id = $("input[type=checkbox]:checked").closest('tr').find('.data_id').text();
-               
-                
+                $("input[type=checkbox]:checked").each(function(index) {
+                    var id=$(this).closest('tr').find('.data_id').text();
+
+                    id_array.push(id);
+                });
+
+                //var data_id = $("input[type=checkbox]:checked").closest('tr').find('.data_id').text();
+
+
                 // $("input[type=checkbox]").each(function() {
                 //     var self = $(this);
                 //     if (self.is(':checked')) {
                 //         arr.push(self.attr("id"));
                 //     }
                 // });
-                //alert(data_id);
+                alert(id_array);
 
                 // var data_id= $('.mark').closest('tr').find('.data_id').text();
                 // //alert(data_id);
-                if (data_id != '') {
-                    $('#id_mdelete').val(data_id);
+                if (id_array != '') {
+                    $('#id_mdelete').val(id_array);
                     $('#mdeleteModal').modal('show');
-                }else{
+                } else {
                     alert('Select Atleast One!');
                 }
 
@@ -390,7 +400,7 @@
                 var data_id = $(this).closest('tr').find('.data_id').text();
                 //alert(data_id);
                 $('#id_delete').val(data_id);
-                $('#deleteModal').modal('show');   
+                $('#deleteModal').modal('show');
             });
 
             $('.update_data').click(function(e) {
@@ -600,7 +610,7 @@
                         // console.log(value['fname']);
                         $('.data').append('<tr>' +
 
-                            '<td class="data_id">' + '<input class="mark" id="checkboxS" type="checkbox">'+'<p class="hide">'+ value['id']+'</p>'+'</td>\
+                            '<td class="data_id">' + '<input class="mark" id="checkboxS" type="checkbox">' + '<p class="hide">' + value['id'] + '</p>' + '</td>\
                               <td>' + value['requestno'] + '</td>\
                                 <td>' + value['area'] + '</td>\
                                 <td>' + value['date'] + '</td>\
