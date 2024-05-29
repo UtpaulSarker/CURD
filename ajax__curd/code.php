@@ -95,7 +95,6 @@ if (isset($_POST['checking_delete'])) {
 
 if (isset($_POST['mark_delete'])) {
     $id = $_POST['data_id'];
-
     //$ids = str_split($id, 3);
 
     //$_taskids = implode(",", $ids);
