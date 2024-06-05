@@ -365,7 +365,7 @@
             $(document).on("click", ".mDelete", function() {
                 var id_array=[];
 
-                $("input[type=checkbox]:checked").closest('td').each(function(index) {
+                $("input[type=checkbox]:checked").closest('.mark').each(function(index) {
                     var id=$(this).closest('tr').find('.data_id').text();
 
                     id_array.push(id);
